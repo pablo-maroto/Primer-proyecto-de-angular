@@ -1,0 +1,22 @@
+<h2>Lista de Tareas</h2>
+<ul>
+  <li *ngFor="let tarea of tareas">
+    {{ tarea.nombre }} - ${{ tarea.costo }}
+  </li>
+</ul>
+
+<!-- Opcional: Wraper para utilizar ngFor dentro de un ngIf -->
+<ng-container *ngIf="mostrarLista">
+  <ul>
+    <li *ngFor="let tarea of tareas">
+      {{ tarea.nombre }} - ${{ tarea.costo }}
+    </li>
+  </ul>
+</ng-container>
+
+<!-- Botón para ocultar o mostrar la lista -->
+<button (click)="mostrarLista = !mostrarLista" *ngIf="!mostrarLista">Mostrar Lista</button>
+<button (click)="mostrarLista = !mostrarLista" *ngIf="mostrarLista">Ocultar Lista</button>
+
+<!-- Opcional: Botón de Angular Material -->
+<button mat-button (click)="mostrarLista = !mostrarLista">{{ mostrarLista ? 'Ocultar Lista' : 'Mostrar Lista' }}</button>
